@@ -1,12 +1,13 @@
 $(document).ready(function () {
     $('.cep').mask('00000-000');
     $(".data").mask("9999-99-99");
+    $("#alterar_data").mask("9999-99-99");
 
 });
 $(".btn-default").click(function () {
     $('#modalEditar').css('display', 'none');
 })
-// cadstro
+// Cadastro
 $('.cadastro').click(function () {
     var nome = $("input[name=nome]").val();
     var dT_NASCIMENTO = $('input[name=data]').val();
@@ -62,8 +63,6 @@ $('.list').click(function () {
             valores += "<td>" + value.cliente_Enderecos[0].cidade + "</td>";
             valores += "<td>" + value.cliente_Enderecos[0].bairro + "</td>";
             valores += "<td class='cep'>" + value.cliente_Enderecos[0].cep + "</td>";
-
-
             valores += "<td>  <button class='alt' title='Alterar' data-id=' " + value.id + "' onClick='altCadastro(this)' >ALT </button>  <button class='del' title='excluir' data-id=' " + value.id + "'  onClick='deletar(this)'>DEL </button></td>";
             valores += "</tr>";
             $("#tabela tbody").html(valores);
@@ -86,16 +85,14 @@ function altCadastro(alt) {
         success: function (dados) {
             if (dados.status) {
                 $('#alterar_cliente_id').val(id);
-                $('#alterar_nome').val(dados.nome);
+                $('#alterar_nome').text(dados.nome);
                 $('#alterar_data').val(dados.dT_NASCIMENTO);
                 idend += dados.cliente_Enderecos[0].id;
                 $('#alterar_end').val(dados.cliente_Enderecos[0].logradouro);
                 $('#alterar_uf').val(dados.cliente_Enderecos[0].uf);
                 $('#alterar_cidade').val(dados.cliente_Enderecos[0].cidade);
                 $('#alterar_bairro').val(dados.cliente_Enderecos[0].bairro);
-                $('#alterar_cep').val(dados.cliente_Enderecos[0].cep);
-
-
+                $('#alterar_cep').text(dados.cliente_Enderecos[0].cep);
                 $('#modalEditar').css('display', 'block');
                 $('#modalEditar').css('opacity', '1');
             }
@@ -199,7 +196,7 @@ function pesqID() {
 
                 $('#alterar_cliente_id').val(id);
                 $('#alterar_nome').val(dados.nome);
-                $('#alterar_data').val(dados.dT_NASCIMENTO).mask(0000 / 00 / 00);
+                $('#alterar_data').val(dados.dT_NASCIMENTO);
                 idend += dados.cliente_Enderecos[0].id;
                 $('#alterar_end').val(dados.cliente_Enderecos[0].logradouro);
                 $('#alterar_uf').val(dados.cliente_Enderecos[0].uf);
