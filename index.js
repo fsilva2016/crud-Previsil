@@ -65,6 +65,7 @@ $('.list').click(function () {
             valores += "<td class='cep'>" + value.cliente_Enderecos[0].cep + "</td>";
             valores += "<td>  <button class='alt' title='Alterar' data-id=' " + value.id + "' onClick='altCadastro(this)' >ALT </button>  <button class='del' title='excluir' data-id=' " + value.id + "'  onClick='deletar(this)'>DEL </button></td>";
             valores += "</tr>";
+            $("#tabela").css('display', 'block');
             $("#tabela tbody").html(valores);
             $(".data").mask("9999-99-99");
         });

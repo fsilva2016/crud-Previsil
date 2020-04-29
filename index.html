@@ -20,39 +20,39 @@
                 <legend>Cadastro de cliente</legend>
                 <form method="post" role="form">
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-9 cpinput">
                             <label for="nome">Nome</label>
                             <input type="text" class="form-control" name="nome"
                                 value="">
                         </div>
-                        <div class="col-3">
+                        <div class="col-3 cpinput">
                             <label for="data">Data Nascimento</label>
                             <input type="date" class="form-control" name="data"
                                 class="data"
                                 maxlength="10" value="">
                         </div>
-                        <div class="col-7">
+                        <div class="col-7 cpinput">
                             <label for="end">Endereço</label>
                             <input type="text" class="form-control" name="end"
                                 value="">
                         </div>
 
-                        <div class="col-4">
+                        <div class="col-4 cpinput">
                             <label for="bairro">Bairro</label>
                             <input type="text" class="form-control"
                                 name="bairro" value="">
                         </div>
-                        <div class="col-1">
+                        <div class="col-1 cpinput">
                             <label for="uf">UF</label>
                             <input type="text" class="form-control"
                                 name="uf" value="" maxlength="2">
                         </div>
-                        <div class="col-10">
+                        <div class="col-10 cpinput">
                             <label for="cidade">Cidade</label>
                             <input type="text" class="form-control"
                                 name="cidade" value="">
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 cpinput">
                             <label for="cep">Cep:</label>
                             <input type="text" class="form-control cep"
                                 name="cep" value="" maxlength="9">
@@ -87,9 +87,9 @@
                 <h3>Lista de Clintes Cadastros</h3>
                 <table id="tabela">
                     <thead>
-                        <tr>
+                        <tr class="">
                             <td>ID </td>
-                            <td width="150px">NOME</td>
+                            <td>NOME</td>
                             <td>DATA NASCIMENTO</td>
                             <td>ENDEREÇO</td>
                             <td>UF</td>
@@ -100,7 +100,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr></tr>
+                        <tr>
+
+                        </tr>
 
                     </tbody>
                 </table>
@@ -175,6 +177,7 @@
                     </div>
                 </div>
             </div>
+            <span>Teste realizado por felipe moraes da silva 2020</span>
         </footer>
 
         <script src="jquery.js"></script>
