@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin:  0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container form{
+    width: 100%;
+    max-width: 1000px;
+}
+
+header{
+    text-align: center;
+}
+header img {
+    max-width: 100%;
+}
+.container h1 {
+    display: block;
+}
+.container .form{
+    float: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+
+}
+legend {
+display: inline;
+width: auto;
+}
+button.cadastro {
+    float: right;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #23b0e6;
+    border: 0;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+.pesquisa {
+    width: 100%;
+    margin-top: 26px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+.pesquisa input{
+    display: inline-block;
+    width: 68%;
+    float: left;
+}
+.pesquisa label{
+    display: block;
+}
+button.btpesquisar {
+    float: left;
+    padding: 7px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #23b0e6;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 16px;
+}
+button.list {
+    float: left;
+    padding: 7px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #23b0e6;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    margin-left: 16px;
+}
+.lista h3{
+    display: inline;
+    float: left;
+}
+.lista {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+#tabela {
+    border: 1px solid #ccc;
+    float: left;
+}
+#tabela tr , #tabela td{
+    border: 1px solid #ccc;
+
+    padding: 5px 15px;
+    font-size: 13px;
+}
+button.alt {
+    background:url(icons8-sincronizar-24.png) no-repeat right center;
+    border: 0;
+    text-indent: -99999px;
+    color: transparent;
+    margin-right: 16px;
+    font-size: 15px;
+}
+button.del {
+    background:url(icons8-excluir-30.png) no-repeat right center;
+    border: 0;
+    text-indent: -99999px;
+    color: transparent;
+    font-size: 15px;
+}
+
+.modal-content {
+    top: 100px;
+}
