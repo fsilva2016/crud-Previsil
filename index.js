@@ -32,6 +32,8 @@ $('.cadastro').click(function () {
             "DAT_INCLUSAO": "2019-10-18"
         }]
     });
+
+
     $.ajax({
         url: "https://oauthhm.previsul.com.br/api/cliente/cadastrar",
         type: "post",
