@@ -51,7 +51,6 @@ $('.cadastro').click(function () {
 var listar = 'https://oauthhm.previsul.com.br/api/cliente/obter-todos';
 $('.list').click(function () {
     $.getJSON(listar, function (obj) {
-        console.log(obj);
         var valores = '';
         $.each(obj, function (key, value) {
             valores += "<tr>";
@@ -75,7 +74,6 @@ $('.list').click(function () {
 // ALTERAR O CADASTRO
 function altCadastro(alt) {
     let id = $(alt).data("id");
-    console.log(id);
     let idend = " ";
     $.ajax({
         url: "https://oauthhm.previsul.com.br/api/cliente/obter-id/" + id,
@@ -86,14 +84,14 @@ function altCadastro(alt) {
         success: function (dados) {
             if (dados.status) {
                 $('#alterar_cliente_id').val(id);
-                $('#alterar_nome').text(dados.nome);
+                $('#alterar_nome').val(dados.nome);
                 $('#alterar_data').val(dados.dT_NASCIMENTO);
                 idend += dados.cliente_Enderecos[0].id;
                 $('#alterar_end').val(dados.cliente_Enderecos[0].logradouro);
                 $('#alterar_uf').val(dados.cliente_Enderecos[0].uf);
                 $('#alterar_cidade').val(dados.cliente_Enderecos[0].cidade);
                 $('#alterar_bairro').val(dados.cliente_Enderecos[0].bairro);
-                $('#alterar_cep').text(dados.cliente_Enderecos[0].cep);
+                $('#alterar_cep').val(dados.cliente_Enderecos[0].cep);
                 $('#modalEditar').css('display', 'block');
                 $('#modalEditar').css('opacity', '1');
             }
@@ -144,6 +142,7 @@ function altCadastro(alt) {
                 $('.list').click();
                 $('#modalEditar').css('display', 'none');
                 $('#modalEditar').css('opacity', '0');
+                alertMensagem();
             },
             error: function (error) {
                 alert("Erro ao alterar seu cadastro ")
@@ -175,16 +174,8 @@ function deletar(del) {
     }
 
 }
-
-
-
-
-
-
 function pesqID() {
     let id = $('#idUsuario').val();
-    // let confirmacao = confirm("Confirmar a exclusao do seu cadastro ");
-    console.log(id);
     let idend = " ";
     $.ajax({
         url: "https://oauthhm.previsul.com.br/api/cliente/obter-id/" + id,
@@ -263,3 +254,7 @@ function pesqID() {
         });
     });
 };
+
+function alterarCadastro() {
+
+}
