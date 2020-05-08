@@ -1,11 +1,10 @@
-teste de projeto 
-CRUD
-Sistema de cadastro com uma API EXTERNA 
+Teste do Projeto CRUD
+Criação do Sistema de cadastro com uma API EXTERNA 
 
-Com HTML 5 CSS JQUERY AJAX
+Com HTML5 CSS JQUERY AJAX
+
 responsivel 
 
-Um grade desafio ja que nunca tinha feito algo parecido 
-mesmo com poucas ajuda para da um direcao 
-depois de varios blogs cheio de modelo conseguir monta uma base com GET POST PULL DELETE
-passei 3 semana para fazer mais queria concluir para meu conhecimento futuros 
+Hoje finalizo um desafio de Crud !
+Gostaria de agradecer a todos que me auxiliaram desde do inicio e me mostraram o caminho, com esse desafio obtive mais foco em meus estudos e nos projetos a desenvolver e aprendi a encontrar soluções .
+Atuo com plataformas de site mas nunca antes tinha me deparado com um desafio equivalente a este pois meu perfil ainda é Junior, confesso que pensei desistir pois era novo o conhecimento dessas ferramentas (Jquery, ajax e js ) e após 14 dias e horas dedicadas no projeto eu venci mais um desafio!

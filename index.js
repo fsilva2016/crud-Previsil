@@ -1,23 +1,27 @@
+//Aplicação de mascaras 
 $(document).ready(function () {
     $('.cep').mask('00000-000');
     $(".data").mask("9999-99-99");
     $("#alterar_data").mask("9999-99-99");
 
 });
+// abri modal para alteracao de cadastro
 $(".btn-default").click(function () {
     $('#modalEditar').css('display', 'none');
 })
-// Cadastro
+// Cadastro do cliente na api
 $('.cadastro').click(function () {
-    var nome = $("input[name=nome]").val();
-    var dT_NASCIMENTO = $('input[name=data]').val();
-    var end = $("input[name=end]").val();
-    var cep = $("input[name=cep]").mask("00000000").val();
-    var uf = $("input[name=uf]").val();
-    var cidade = $("input[name=cidade]").val();
-    var bairro = $("input[name=bairro]").val();
+    // pega os value dos input para variavel 
+    let nome = $("input[name=nome]").val();
+    let dT_NASCIMENTO = $('input[name=data]').val();
+    let end = $("input[name=end]").val();
+    let cep = $("input[name=cep]").mask("00000000").val();
+    let uf = $("input[name=uf]").val();
+    let cidade = $("input[name=cidade]").val();
+    let bairro = $("input[name=bairro]").val();
 
-    var cadastro = JSON.stringify({
+    /// cria o objeto para enviar para api     
+    let cadastro = JSON.stringify({
         nome: nome,
         dT_NASCIMENTO: dT_NASCIMENTO,
         "status": 1,
@@ -49,11 +53,12 @@ $('.cadastro').click(function () {
         }
     });
 });
-// LISTA CADASTRO
-var listar = 'https://oauthhm.previsul.com.br/api/cliente/obter-todos';
+// Lista os cliente da api
+let listar = 'https://oauthhm.previsul.com.br/api/cliente/obter-todos';
 $('.list').click(function () {
+    // monta a tabela com os valores 
     $.getJSON(listar, function (obj) {
-        var valores = '';
+        let valores = '';
         $.each(obj, function (key, value) {
             valores += "<tr>";
             valores += "<td data-id=' " + value.id + "'>" + value.id + "</td>";
@@ -73,10 +78,11 @@ $('.list').click(function () {
     });
 });
 
-// ALTERAR O CADASTRO
+// ALTERAR O CADASTRO Do cliente 
 function altCadastro(alt) {
     let id = $(alt).data("id");
     let idend = " ";
+    // lista o cadastro para fazer a alteração 
     $.ajax({
         url: "https://oauthhm.previsul.com.br/api/cliente/obter-id/" + id,
         type: "get",
@@ -105,6 +111,7 @@ function altCadastro(alt) {
     });
 
     $('#confEditar').click(function () {
+        // com os valores alteradio e mandado para a base 
 
         let altid = $('#alterar_cliente_id').val();
         let altnome = $('#alterar_nome').val();
@@ -114,7 +121,7 @@ function altCadastro(alt) {
         let altbairro = $('#alterar_bairro').val();
         let altcep = $('#alterar_cep').mask("00000000").val();
         let altuf = $('#alterar_uf').val();
-        var alterarcao = JSON.stringify({
+        let alterarcao = JSON.stringify({
             id: altid,
             nome: altnome,
             dT_NASCIMENTO: altdata,
@@ -153,7 +160,7 @@ function altCadastro(alt) {
     });
 };
 
-// DELETE
+// Deleta o cadastro do cliente 
 function deletar(del) {
     let id = $(del).data("id");
     let confirmacao = confirm("Confirmar a exclusao do seu cadastro ");
@@ -166,6 +173,8 @@ function deletar(del) {
             cache: false,
             success: function (response) {
                 alert("Cadastro  excluido com sucesso ");
+                // atulaiza a lista de cadastro 
+
                 $('.list').click();
             },
             error: function (error) {
@@ -176,6 +185,7 @@ function deletar(del) {
     }
 
 }
+// pesquisa o usuario pelo id  do cadastro 
 function pesqID() {
     let id = $('#idUsuario').val();
     let idend = " ";
@@ -197,8 +207,6 @@ function pesqID() {
                 $('#alterar_cidade').val(dados.cliente_Enderecos[0].cidade);
                 $('#alterar_bairro').val(dados.cliente_Enderecos[0].bairro);
                 $('#alterar_cep').val(dados.cliente_Enderecos[0].cep);
-
-
                 $('#modalEditar').css('display', 'block');
                 $('#modalEditar').css('opacity', '1');
             }
@@ -219,7 +227,7 @@ function pesqID() {
         let altbairro = $('#alterar_bairro').val();
         let altcep = $('#alterar_cep').val();
         let altuf = $('#alterar_uf').val();
-        var alterarcao = JSON.stringify({
+        let alterarcao = JSON.stringify({
             id: altid,
             nome: altnome,
             dT_NASCIMENTO: altdata,
@@ -256,7 +264,3 @@ function pesqID() {
         });
     });
 };
-
-function alterarCadastro() {
-
-}
